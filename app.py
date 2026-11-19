@@ -232,7 +232,8 @@ with tabs[0]:
     fig.update_layout(showlegend=False)
     st.plotly_chart(tidy(fig, 330), use_container_width=True)
     if selected_years > 1:
-        first, last = sorted(cas["collision_year"].unique())[[0, -1]]
+        year_list = sorted(cas["collision_year"].unique())
+        first, last = year_list[0], year_list[-1]
         note(f"Compare {first} with {last}. Each panel has its own vertical scale, so compare trends, not bar heights across panels.")
     else:
         note("Only one year is selected. Select more years to compare trends over time.")
